@@ -29,30 +29,33 @@ def doMessage(request):
 
 def doMessageFoo(contact,message,frequency):
     print(contact,message,frequency)
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.binary_location = GOOGLE_CHROME_PATH
-    # driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
-    print("I am here " , driver)
-    contact = contact
-    text = message
-    driver.get("https://web.whatsapp.com")
-    print("Scan QR Code, And then Enter")
-    input()
-    print("Logged In")
-    inp_xpath_search = '//*[@id="side"]/div[1]/div/label/div/div[2]'
-    input_box_search = WebDriverWait(driver, 50).until(
-        lambda driver: driver.find_element_by_xpath(inp_xpath_search))
-    input_box_search.click()
-    time.sleep(2)
-    input_box_search.send_keys(contact)
-    time.sleep(2)
-    selected_contact = driver.find_element_by_xpath("//span[@title='"+contact+"']")
-    selected_contact.click()
+    try:
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.binary_location = GOOGLE_CHROME_PATH
+        # driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+        print("I am here " , driver)
+        contact = contact
+        text = message
+        driver.get("https://web.whatsapp.com")
+        print("Scan QR Code, And then Enter")
+        input()
+        print("Logged In")
+        inp_xpath_search = '//*[@id="side"]/div[1]/div/label/div/div[2]'
+        input_box_search = WebDriverWait(driver, 50).until(
+            lambda driver: driver.find_element_by_xpath(inp_xpath_search))
+        input_box_search.click()
+        time.sleep(2)
+        input_box_search.send_keys(contact)
+        time.sleep(2)
+        selected_contact = driver.find_element_by_xpath("//span[@title='"+contact+"']")
+        selected_contact.click()
 
-    for i in range(0,int(frequency)):
-        inp_xpath = '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]'
-        input_box = driver.find_element_by_xpath(inp_xpath)
-        input_box.send_keys(text + Keys.ENTER)
+        for i in range(0,int(frequency)):
+            inp_xpath = '//*[@id="main"]/footer/div[1]/div[2]/div/div[2]'
+            input_box = driver.find_element_by_xpath(inp_xpath)
+            input_box.send_keys(text + Keys.ENTER)
+    except Exception as e:
+        print(e)
