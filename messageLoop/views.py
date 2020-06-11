@@ -31,6 +31,8 @@ def doMessageFoo(contact,message,frequency):
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.binary_location = chrome_bin
         # driver = webdriver.Chrome(ChromeDriverManager().install())
         driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
