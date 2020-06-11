@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9yl6ol5s8(6nk1y!^$)z&vgq8!a124%tfo5s&c&@v7vw6057-k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['whatsapp-protest.herokuapp.com','127.0.0.1']
 
 
 # Application definition
