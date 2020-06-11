@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello Every One</h1>
+    <form action="doMessage" method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        name="contact"
+        placeholder="Write Contact  Number"
+        required
+      />
+      <textarea
+        name="message"
+        placeholder="Write Your Message"
+        required
+      ></textarea>
+      <input
+        type="number"
+        name="frequency"
+        placeholder="How Many Times You Want To Send This Number ??"
+        required
+      />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
