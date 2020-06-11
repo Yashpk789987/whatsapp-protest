@@ -23,10 +23,6 @@ def doMessage(request):
     return render(request, "messageLoop/templates/index.html", {})
     
 
-
-
-
-
 def doMessageFoo(contact,message,frequency):
     print(contact,message,frequency)
     try:
@@ -35,7 +31,7 @@ def doMessageFoo(contact,message,frequency):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.binary_location = GOOGLE_CHROME_PATH
         # driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
         print("I am here " , driver)
         contact = contact
         text = message
